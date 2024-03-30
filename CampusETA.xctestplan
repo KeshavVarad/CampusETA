@@ -1,0 +1,26 @@
+{
+  "configurations" : [
+    {
+      "id" : "60FD89A9-D792-4ACA-B264-C22AF8C39DD8",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "locationScenario" : {
+      "identifier" : "..\/..\/..\/..\/..\/Downloads\/gpxgenerator_path.gpx"
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:CampusETA.xcodeproj",
+      "identifier" : "6BC606272BB79893002040C3",
+      "name" : "CampusETA"
+    }
+  },
+  "testTargets" : [
+
+  ],
+  "version" : 1
+}

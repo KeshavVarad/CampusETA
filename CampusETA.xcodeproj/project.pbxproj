@@ -7,18 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B4F6CB02BB84CDA000FD1AC /* ReadStopAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4F6CAF2BB84CDA000FD1AC /* ReadStopAPI.swift */; };
+		6B4F6CB22BB84CE7000FD1AC /* ReadRouteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4F6CB12BB84CE7000FD1AC /* ReadRouteAPI.swift */; };
 		6BC6062C2BB79893002040C3 /* CampusETAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC6062B2BB79893002040C3 /* CampusETAApp.swift */; };
 		6BC6062E2BB79893002040C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC6062D2BB79893002040C3 /* ContentView.swift */; };
 		6BC606302BB79894002040C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BC6062F2BB79894002040C3 /* Assets.xcassets */; };
 		6BC606332BB79894002040C3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BC606322BB79894002040C3 /* Preview Assets.xcassets */; };
+		6BC6063C2BB79971002040C3 /* ReadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC6063B2BB79971002040C3 /* ReadData.swift */; };
+		6BC606442BB7CF7E002040C3 /* LocationRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC606432BB7CF7E002040C3 /* LocationRequestView.swift */; };
+		6BC606462BB7CF9C002040C3 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC606452BB7CF9C002040C3 /* LocationManager.swift */; };
+		6BC606492BB7F260002040C3 /* weekend_stops.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BC606472BB7F260002040C3 /* weekend_stops.json */; };
+		6BC6064A2BB7F260002040C3 /* weekday_stops.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BC606482BB7F260002040C3 /* weekday_stops.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B4F6CAF2BB84CDA000FD1AC /* ReadStopAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadStopAPI.swift; sourceTree = "<group>"; };
+		6B4F6CB12BB84CE7000FD1AC /* ReadRouteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadRouteAPI.swift; sourceTree = "<group>"; };
 		6BC606282BB79893002040C3 /* CampusETA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CampusETA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BC6062B2BB79893002040C3 /* CampusETAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusETAApp.swift; sourceTree = "<group>"; };
 		6BC6062D2BB79893002040C3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6BC6062F2BB79894002040C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6BC606322BB79894002040C3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6BC6063B2BB79971002040C3 /* ReadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadData.swift; sourceTree = "<group>"; };
+		6BC606432BB7CF7E002040C3 /* LocationRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRequestView.swift; sourceTree = "<group>"; };
+		6BC606452BB7CF9C002040C3 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		6BC606472BB7F260002040C3 /* weekend_stops.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = weekend_stops.json; path = ../../../../Downloads/weekend_stops.json; sourceTree = "<group>"; };
+		6BC606482BB7F260002040C3 /* weekday_stops.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = weekday_stops.json; path = ../../../../Downloads/weekday_stops.json; sourceTree = "<group>"; };
+		6BC6064B2BB7FAD9002040C3 /* gpxgenerator_path.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = gpxgenerator_path.gpx; path = ../../../Downloads/gpxgenerator_path.gpx; sourceTree = "<group>"; };
+		6BC6064C2BB7FADE002040C3 /* CampusETA.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CampusETA.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +51,8 @@
 		6BC6061F2BB79893002040C3 = {
 			isa = PBXGroup;
 			children = (
+				6BC6064C2BB7FADE002040C3 /* CampusETA.xctestplan */,
+				6BC6064B2BB7FAD9002040C3 /* gpxgenerator_path.gpx */,
 				6BC6062A2BB79893002040C3 /* CampusETA */,
 				6BC606292BB79893002040C3 /* Products */,
 			);
@@ -51,10 +69,17 @@
 		6BC6062A2BB79893002040C3 /* CampusETA */ = {
 			isa = PBXGroup;
 			children = (
+				6BC606482BB7F260002040C3 /* weekday_stops.json */,
+				6BC606472BB7F260002040C3 /* weekend_stops.json */,
 				6BC6062B2BB79893002040C3 /* CampusETAApp.swift */,
 				6BC6062D2BB79893002040C3 /* ContentView.swift */,
 				6BC6062F2BB79894002040C3 /* Assets.xcassets */,
 				6BC606312BB79894002040C3 /* Preview Content */,
+				6BC6063B2BB79971002040C3 /* ReadData.swift */,
+				6BC606432BB7CF7E002040C3 /* LocationRequestView.swift */,
+				6BC606452BB7CF9C002040C3 /* LocationManager.swift */,
+				6B4F6CAF2BB84CDA000FD1AC /* ReadStopAPI.swift */,
+				6B4F6CB12BB84CE7000FD1AC /* ReadRouteAPI.swift */,
 			);
 			path = CampusETA;
 			sourceTree = "<group>";
@@ -125,7 +150,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BC6064A2BB7F260002040C3 /* weekday_stops.json in Resources */,
 				6BC606332BB79894002040C3 /* Preview Assets.xcassets in Resources */,
+				6BC606492BB7F260002040C3 /* weekend_stops.json in Resources */,
 				6BC606302BB79894002040C3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,7 +164,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BC6063C2BB79971002040C3 /* ReadData.swift in Sources */,
+				6B4F6CB22BB84CE7000FD1AC /* ReadRouteAPI.swift in Sources */,
+				6BC606462BB7CF9C002040C3 /* LocationManager.swift in Sources */,
 				6BC6062E2BB79893002040C3 /* ContentView.swift in Sources */,
+				6BC606442BB7CF7E002040C3 /* LocationRequestView.swift in Sources */,
+				6B4F6CB02BB84CDA000FD1AC /* ReadStopAPI.swift in Sources */,
 				6BC6062C2BB79893002040C3 /* CampusETAApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,6 +307,7 @@
 				DEVELOPMENT_TEAM = K9L6WUQ8U9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow us to use your location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +337,7 @@
 				DEVELOPMENT_TEAM = K9L6WUQ8U9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow us to use your location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

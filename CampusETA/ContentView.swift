@@ -128,7 +128,7 @@ struct ContentView: View {
                                             
                                             Spacer()
                                             
-                                            Text(String(round(destData.wait_time1)))
+                                            Text(String(Int(destData.wait_time1)))
                                                 .font(.system(size: 24, weight: .medium))
                                                 .foregroundStyle(Color(.dangerRed))
                                             + Text("MIN")
@@ -136,7 +136,7 @@ struct ContentView: View {
                                             
                                             Spacer()
                                             
-                                            Text("ETA West: ")
+                                            Text("ETA " + destData.dest + ": ")
                                                 .font(.system(size: 8.0))
                                                 .baselineOffset(2)
                                             + Text(destData.eta1)
@@ -156,7 +156,7 @@ struct ContentView: View {
                                             
                                             Spacer()
                                             
-                                            Text(String(round(destData.wait_time2)))
+                                            Text(String(Int(destData.wait_time2)))
                                                 .font(.system(size: 24, weight: .medium))
                                                 .foregroundStyle(Color(.dangerRed))
                                             + Text("MIN")
@@ -164,7 +164,7 @@ struct ContentView: View {
                                             
                                             Spacer()
                                             
-                                            Text("ETA West: ")
+                                            Text("ETA " + destData.dest + ": ")
                                                 .font(.system(size: 8.0))
                                                 .baselineOffset(2)
                                             + Text(destData.eta2)
@@ -471,7 +471,10 @@ struct ContentView: View {
         }
         
         var bus1Eta:String? = nil
+        var bus1EtaDate:Date? = nil
+        
         var bus2Eta:String? = nil
+        var bus2EtaDate:Date? = nil
         
         var dateFormatter1 = DateFormatter()
         dateFormatter1.dateFormat = "hh:mm"
@@ -481,12 +484,19 @@ struct ContentView: View {
             
             if (arrival.vehicle_id == bus1.vehicle_id)
             {
-                bus1Eta = dateFormatter1.string(from:dateFormatter.date(from:arrival.arrival_at)!)
+                if (bus1EtaDate == nil || bus1EtaDate! > dateFormatter.date(from:arrival.arrival_at)!) {
+                    bus1EtaDate = dateFormatter.date(from:arrival.arrival_at)!
+                    bus1Eta = dateFormatter1.string(from:bus1EtaDate!)
+                }
+                
             }
             
             if (arrival.vehicle_id == bus2.vehicle_id)
             {
-                bus2Eta = dateFormatter1.string(from:dateFormatter.date(from:arrival.arrival_at)!)
+                if (bus2EtaDate == nil || bus2EtaDate! > dateFormatter.date(from:arrival.arrival_at)!) {
+                    bus2EtaDate = dateFormatter.date(from:arrival.arrival_at)!
+                    bus2Eta = dateFormatter1.string(from:bus2EtaDate!)
+                }
             }
         }
         
@@ -504,6 +514,14 @@ struct ContentView: View {
         }
         if bus2Eta != nil {
             bus2EtaVal = bus2Eta!
+        }
+        
+        if (bus1EtaDate != nil && bus1EtaDate! < dateFormatter.date(from:bus1.arrival_at)!) {
+            bus1EtaVal = "NA"
+        }
+        
+        if (bus2EtaDate != nil && bus2EtaDate! < dateFormatter.date(from:bus2.arrival_at)!) {
+            bus2EtaVal = "NA"
         }
         
         let destData = DestData(dest:destination,bus1_id: bus1.vehicle_id, bus2_id: bus2.vehicle_id, wait_time1: bus1WaitTime, wait_time2: bus2WaitTime, eta1: bus1EtaVal, eta2: bus2EtaVal)

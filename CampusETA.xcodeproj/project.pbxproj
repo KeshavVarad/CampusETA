@@ -18,11 +18,51 @@
 		6BC606462BB7CF9C002040C3 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC606452BB7CF9C002040C3 /* LocationManager.swift */; };
 		6BC606492BB7F260002040C3 /* weekend_stops.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BC606472BB7F260002040C3 /* weekend_stops.json */; };
 		6BC6064A2BB7F260002040C3 /* weekday_stops.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BC606482BB7F260002040C3 /* weekday_stops.json */; };
+		6BC6C1182BB9C100002DA963 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B4F6CBB2BB8B199000FD1AC /* WidgetKit.framework */; };
+		6BC6C1192BB9C100002DA963 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B4F6CBD2BB8B199000FD1AC /* SwiftUI.framework */; };
+		6BC6C11C2BB9C100002DA963 /* CampusETAWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC6C11B2BB9C100002DA963 /* CampusETAWidgetBundle.swift */; };
+		6BC6C11E2BB9C100002DA963 /* CampusETAWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC6C11D2BB9C100002DA963 /* CampusETAWidget.swift */; };
+		6BC6C1202BB9C101002DA963 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BC6C11F2BB9C101002DA963 /* Assets.xcassets */; };
+		6BC6C1242BB9C101002DA963 /* CampusETAWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6BC6C1172BB9C100002DA963 /* CampusETAWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6BC6C1282BB9C99C002DA963 /* ReadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC6063B2BB79971002040C3 /* ReadData.swift */; };
+		6BC6C1292BB9C9AA002DA963 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC6062D2BB79893002040C3 /* ContentView.swift */; };
+		6BC6C12A2BB9CA43002DA963 /* ReadStopAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4F6CAF2BB84CDA000FD1AC /* ReadStopAPI.swift */; };
+		6BC6C12B2BB9CA7B002DA963 /* ReadRouteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4F6CB12BB84CE7000FD1AC /* ReadRouteAPI.swift */; };
+		6BC6C12C2BB9D174002DA963 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC606452BB7CF9C002040C3 /* LocationManager.swift */; };
+		6BC6C12D2BB9D208002DA963 /* LocationRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC606432BB7CF7E002040C3 /* LocationRequestView.swift */; };
+		6BC6C12E2BB9D297002DA963 /* weekend_stops.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BC606472BB7F260002040C3 /* weekend_stops.json */; };
+		6BC6C12F2BB9D29A002DA963 /* weekday_stops.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BC606482BB7F260002040C3 /* weekday_stops.json */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6BC6C1222BB9C101002DA963 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BC606202BB79893002040C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6BC6C1162BB9C100002DA963;
+			remoteInfo = CampusETAWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6B4F6CCE2BB8B19A000FD1AC /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				6BC6C1242BB9C101002DA963 /* CampusETAWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6B4F6CAF2BB84CDA000FD1AC /* ReadStopAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadStopAPI.swift; sourceTree = "<group>"; };
 		6B4F6CB12BB84CE7000FD1AC /* ReadRouteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadRouteAPI.swift; sourceTree = "<group>"; };
+		6B4F6CBB2BB8B199000FD1AC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		6B4F6CBD2BB8B199000FD1AC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		6BC606282BB79893002040C3 /* CampusETA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CampusETA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BC6062B2BB79893002040C3 /* CampusETAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusETAApp.swift; sourceTree = "<group>"; };
 		6BC6062D2BB79893002040C3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -35,6 +75,11 @@
 		6BC606482BB7F260002040C3 /* weekday_stops.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = weekday_stops.json; path = ../../../../Downloads/weekday_stops.json; sourceTree = "<group>"; };
 		6BC6064B2BB7FAD9002040C3 /* gpxgenerator_path.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = gpxgenerator_path.gpx; path = ../../../Downloads/gpxgenerator_path.gpx; sourceTree = "<group>"; };
 		6BC6064C2BB7FADE002040C3 /* CampusETA.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CampusETA.xctestplan; sourceTree = "<group>"; };
+		6BC6C1172BB9C100002DA963 /* CampusETAWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CampusETAWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BC6C11B2BB9C100002DA963 /* CampusETAWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusETAWidgetBundle.swift; sourceTree = "<group>"; };
+		6BC6C11D2BB9C100002DA963 /* CampusETAWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusETAWidget.swift; sourceTree = "<group>"; };
+		6BC6C11F2BB9C101002DA963 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6BC6C1212BB9C101002DA963 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,15 +90,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6BC6C1142BB9C100002DA963 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BC6C1192BB9C100002DA963 /* SwiftUI.framework in Frameworks */,
+				6BC6C1182BB9C100002DA963 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B4F6CBA2BB8B199000FD1AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6B4F6CBB2BB8B199000FD1AC /* WidgetKit.framework */,
+				6B4F6CBD2BB8B199000FD1AC /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6BC6061F2BB79893002040C3 = {
 			isa = PBXGroup;
 			children = (
 				6BC6064C2BB7FADE002040C3 /* CampusETA.xctestplan */,
 				6BC6064B2BB7FAD9002040C3 /* gpxgenerator_path.gpx */,
 				6BC6062A2BB79893002040C3 /* CampusETA */,
+				6BC6C11A2BB9C100002DA963 /* CampusETAWidget */,
+				6B4F6CBA2BB8B199000FD1AC /* Frameworks */,
 				6BC606292BB79893002040C3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -62,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				6BC606282BB79893002040C3 /* CampusETA.app */,
+				6BC6C1172BB9C100002DA963 /* CampusETAWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,6 +158,17 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		6BC6C11A2BB9C100002DA963 /* CampusETAWidget */ = {
+			isa = PBXGroup;
+			children = (
+				6BC6C11B2BB9C100002DA963 /* CampusETAWidgetBundle.swift */,
+				6BC6C11D2BB9C100002DA963 /* CampusETAWidget.swift */,
+				6BC6C11F2BB9C101002DA963 /* Assets.xcassets */,
+				6BC6C1212BB9C101002DA963 /* Info.plist */,
+			);
+			path = CampusETAWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -102,15 +179,34 @@
 				6BC606242BB79893002040C3 /* Sources */,
 				6BC606252BB79893002040C3 /* Frameworks */,
 				6BC606262BB79893002040C3 /* Resources */,
+				6B4F6CCE2BB8B19A000FD1AC /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				6BC6C1232BB9C101002DA963 /* PBXTargetDependency */,
 			);
 			name = CampusETA;
 			productName = CampusETA;
 			productReference = 6BC606282BB79893002040C3 /* CampusETA.app */;
 			productType = "com.apple.product-type.application";
+		};
+		6BC6C1162BB9C100002DA963 /* CampusETAWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6BC6C1272BB9C101002DA963 /* Build configuration list for PBXNativeTarget "CampusETAWidgetExtension" */;
+			buildPhases = (
+				6BC6C1132BB9C100002DA963 /* Sources */,
+				6BC6C1142BB9C100002DA963 /* Frameworks */,
+				6BC6C1152BB9C100002DA963 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CampusETAWidgetExtension;
+			productName = CampusETAWidgetExtension;
+			productReference = 6BC6C1172BB9C100002DA963 /* CampusETAWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -123,6 +219,9 @@
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					6BC606272BB79893002040C3 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					6BC6C1162BB9C100002DA963 = {
 						CreatedOnToolsVersion = 15.3;
 					};
 				};
@@ -141,6 +240,7 @@
 			projectRoot = "";
 			targets = (
 				6BC606272BB79893002040C3 /* CampusETA */,
+				6BC6C1162BB9C100002DA963 /* CampusETAWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -154,6 +254,16 @@
 				6BC606332BB79894002040C3 /* Preview Assets.xcassets in Resources */,
 				6BC606492BB7F260002040C3 /* weekend_stops.json in Resources */,
 				6BC606302BB79894002040C3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BC6C1152BB9C100002DA963 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BC6C1202BB9C101002DA963 /* Assets.xcassets in Resources */,
+				6BC6C12F2BB9D29A002DA963 /* weekday_stops.json in Resources */,
+				6BC6C12E2BB9D297002DA963 /* weekend_stops.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,7 +284,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6BC6C1132BB9C100002DA963 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BC6C12B2BB9CA7B002DA963 /* ReadRouteAPI.swift in Sources */,
+				6BC6C12D2BB9D208002DA963 /* LocationRequestView.swift in Sources */,
+				6BC6C1282BB9C99C002DA963 /* ReadData.swift in Sources */,
+				6BC6C11C2BB9C100002DA963 /* CampusETAWidgetBundle.swift in Sources */,
+				6BC6C12C2BB9D174002DA963 /* LocationManager.swift in Sources */,
+				6BC6C12A2BB9CA43002DA963 /* ReadStopAPI.swift in Sources */,
+				6BC6C1292BB9C9AA002DA963 /* ContentView.swift in Sources */,
+				6BC6C11E2BB9C100002DA963 /* CampusETAWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6BC6C1232BB9C101002DA963 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6BC6C1162BB9C100002DA963 /* CampusETAWidgetExtension */;
+			targetProxy = 6BC6C1222BB9C101002DA963 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6BC606342BB79894002040C3 /* Debug */ = {
@@ -299,6 +432,7 @@
 		6BC606372BB79894002040C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -329,6 +463,7 @@
 		6BC606382BB79894002040C3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -356,6 +491,60 @@
 			};
 			name = Release;
 		};
+		6BC6C1252BB9C101002DA963 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K9L6WUQ8U9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CampusETAWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CampusETAWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kvarad.CampusETA.CampusETAWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6BC6C1262BB9C101002DA963 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K9L6WUQ8U9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CampusETAWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CampusETAWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kvarad.CampusETA.CampusETAWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -373,6 +562,15 @@
 			buildConfigurations = (
 				6BC606372BB79894002040C3 /* Debug */,
 				6BC606382BB79894002040C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6BC6C1272BB9C101002DA963 /* Build configuration list for PBXNativeTarget "CampusETAWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6BC6C1252BB9C101002DA963 /* Debug */,
+				6BC6C1262BB9C101002DA963 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

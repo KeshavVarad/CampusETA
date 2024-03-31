@@ -1,233 +1,55 @@
 //
-//  ContentView.swift
-//  CampusETA
+//  CampusETAWidget.swift
+//  CampusETAWidget
 //
-//  Created by Keshav Varadarajan on 3/29/24.
+//  Created by Keshav Varadarajan on 3/31/24.
 //
 
+import WidgetKit
 import SwiftUI
-import Charts
 
-
-struct LoadPoint : Identifiable {
-    var id = UUID()
-    var time : Double
-    var load : Double
-}
-
-
-struct DestData : Identifiable {
-    var id = UUID()
-    
-    var dest:String
-    
-    var bus1_id:String
-    var bus2_id:String
-    
-    var wait_time1:Double
-    var wait_time2:Double
-    
-    var eta1:String
-    var eta2:String
-}
-
-
-
-struct ContentView: View {
-    
-    @ObservedObject var locationManager = LocationManager.shared
-    @ObservedObject var stopData = ReadData()
-    
-    @State var destDataArray : [DestData] = []
-    
-    
-    var C1_ID = "4008330"
-    var Swift_ID = "4016862"
-    var C1_Swift_ID = "4017244"
-    var East = "4117202"
-    var West = "4267588"
-    var Swift_weekday = "4258580"
-    var Swift_west = "4258580"
-    var Swift_east = "4276800"
-    
-    
-    var loadData : [LoadPoint] = [
-        .init(time:0, load: 0.4),
-        .init(time:1, load: 0.2),
-        .init(time:2, load: 0.5),
-        .init(time:3, load: 0.6),
-        .init(time:4, load: 0.2)
-    ]
-    
-    @State var timeToWest = 5
-    @State var timeToEast = 7
-    @State var timeToSwift = 9
-    
-    
-    @State var westETA = Date.now
-    @State var eastETA = Date.now
-    @State var swiftETA = Date.now
-    
-    @ViewBuilder
-    var body: some View {
+struct Provider: TimelineProvider {
+    func placeholder(in context: Context) -> SimpleEntry {
+        let placeholderDestinations = [
+            DestData(dest: "east", bus1_id: "4007836", bus2_id: "4014045", wait_time1: 12.3232, wait_time2: 20.2342, eta1: "12:43", eta2: "NA"),
+            DestData(dest: "swift", bus1_id: "4007836", bus2_id: "4014045", wait_time1: 12.3232, wait_time2: 20.2342, eta1: "12:43", eta2: "NA")
+        ]
         
+        return SimpleEntry(date: Date(), emoji: "😀", destinations: placeholderDestinations)
+    }
+
+    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
+        let destinations = [
+            DestData(dest: "east", bus1_id: "4007836", bus2_id: "4014045", wait_time1: 12.3232, wait_time2: 20.2342, eta1: "12:43", eta2: "NA"),
+            DestData(dest: "swift", bus1_id: "4007836", bus2_id: "4014045", wait_time1: 12.3232, wait_time2: 20.2342, eta1: "12:43", eta2: "NA")
+        ]
+        let entry = SimpleEntry(date: Date(), emoji: "😀", destinations: destinations)
+        completion(entry)
+    }
+
+    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         
-        if (locationManager.userLocation == nil) {
-            LocationRequestView()
+        Task {
+            var entries: [SimpleEntry] = []
+
+            
+            let currentDate = Date()
+            let currentDestinations = try? await updateState()
+            
+            let entry = SimpleEntry(date: currentDate, emoji: "", destinations: currentDestinations!)
+            
+            entries.append(entry)
+
+            let timeline = Timeline(entries: entries, policy: .atEnd)
+            completion(timeline)
         }
-        else
-        {
-            ZStack {
-                Color(.deepBlue).ignoresSafeArea()
-                Color(.offWhite)
-                
-                
-                VStack {
-                    HStack{
-                        Text("Campus ETA")
-                            .padding(20)
-                            .font(.system(size: 24, weight:.medium))
-                            .foregroundStyle(.white)
-                        Spacer()
-                    }
-                    .frame(maxWidth:.infinity, idealHeight: 50)
-                    .background(
-                        Rectangle()
-                            .fill(Color(.deepBlue))
-                            .frame(maxWidth:.infinity, idealHeight: 50))
-                    
-                    ScrollView {
-                        VStack {
-                            VStack {
-                                
-                                
-                                Text("Next Bus To")
-                                    .font(.system(size: 24, weight:.medium))
-                                    .frame(width: 320, height: 50)
-                                    .foregroundStyle(.black)
-                                    .padding()
-                                    .cornerRadius(7)
-                                
-                                ForEach(destDataArray) { destData in
-                                    
-                                    VStack {
-                                        
-                                        Text(destData.dest.capitalized)
-                                            .font(.system(size: 24, weight:.medium))
-                                            .frame(width: 315, height: 50)
-                                            .foregroundStyle(.black)
-                                            .padding(5)
-                                            .background(Rectangle().fill(Color(.lightGrey)))
-                                            .cornerRadius(20)
-                                        
-                                        HStack {
-                                            Spacer()
-                                            
-                                            Image("BusIcon")
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fit)
-                                            
-                                            Text("#" + destData.bus1_id)
-                                                .font(.system(size: 14, weight: .medium))
-                                            
-                                            Spacer()
-                                            
-                                            Text(String(Int(destData.wait_time1)))
-                                                .font(.system(size: 24, weight: .medium))
-                                                .foregroundStyle(Color(.dangerRed))
-                                            + Text("MIN")
-                                                .font(.system(size: 8.0))
-                                            
-                                            Spacer()
-                                            
-                                            Text("ETA " + destData.dest + ": ")
-                                                .font(.system(size: 8.0))
-                                                .baselineOffset(2)
-                                            + Text(destData.eta1)
-
-                                            Spacer()
-                                        }
-                                        .frame(width: 315, height: 50)
-                                        .padding(5)
-                                        .background(Rectangle().fill(Color(.darkWhite)))
-                                        .cornerRadius(20)
-                                        
-                                        HStack {
-                                            Spacer()
-                                            
-                                            Image("BusIcon")
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fit)
-                                            
-                                            Text("#" + destData.bus2_id)
-                                                .font(.system(size: 14, weight: .medium))
-                                            
-                                            Spacer()
-                                            
-                                            Text(String(Int(destData.wait_time2)))
-                                                .font(.system(size: 24, weight: .medium))
-                                                .foregroundStyle(Color(.dangerRed))
-                                            + Text("MIN")
-                                                .font(.system(size: 8.0))
-                                            
-                                            Spacer()
-                                            
-                                            Text("ETA " + destData.dest + ": ")
-                                                .font(.system(size: 8.0))
-                                                .baselineOffset(2)
-                                            + Text(destData.eta2)
-
-                                            Spacer()
-                                        }
-                                        .frame(width: 315, height: 50)
-                                        .padding(5)
-                                        .background(Rectangle().fill(Color(.darkWhite)))
-                                        .cornerRadius(20)
-                                        
-                                    }
-                                    
-                                }
-                                
-                                
-                            }
-                            
-                            VStack {
-                                Text("Capacity")
-                                    .font(.system(size: 24, weight:.medium))
-                                    .frame(width: 320, height: 50)
-                                    .foregroundStyle(.black)
-                                    .padding()
-                                    .cornerRadius(7)
-                                
-                                Image("MondayCapacity")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                            }
-                        }
-                        .task {
-                       
-                            do {
-                                try await Task.sleep(nanoseconds: 30_000_000)
-                                await updateState()
-                                
-                            } catch {
-                                
-                            }
-                        }
-                        
-                    }
-                    .padding(.bottom, 1)
-                }
-                
-            }
-        }
-        
-        
-        
     }
     
     
     func fetchStopCluster() -> [Stop] {
+        @ObservedObject var stopData = ReadData()
+        
+        
         let isWeekend = Calendar.current.isDateInWeekend(Date.now)
 
 //        let curLat = Float((locationManager.userLocation?.coordinate.latitude)!)
@@ -377,6 +199,14 @@ struct ContentView: View {
     
     func fetchDestData(destination:String, stops:[Stop]) async -> DestData {
         
+        var C1_ID = "4008330"
+        var Swift_ID = "4016862"
+        var C1_Swift_ID = "4017244"
+        var East = "4117202"
+        var West = "4267588"
+        var Swift_weekday = "4258580"
+        var Swift_west = "4258580"
+        var Swift_east = "4276800"
         
         let isWeekend = Calendar.current.isDateInWeekend(Date.now)
         
@@ -538,7 +368,7 @@ struct ContentView: View {
         return destData
     }
     
-    func updateState() async {
+    func updateState() async -> [DestData]{
         
         
         var tempDestData : [DestData] = []
@@ -553,13 +383,130 @@ struct ContentView: View {
         }
         
         
-        destDataArray = tempDestData
-        print(destDataArray)
+        return tempDestData
     }
-    
     
 }
 
-#Preview {
-    ContentView()
+struct SimpleEntry: TimelineEntry {
+    let date: Date
+    let emoji: String
+    var destinations: [DestData]
+}
+
+struct CampusETAWidgetMedium : View {
+    var entry: Provider.Entry
+    
+    
+    var body: some View {
+        ZStack {
+            Color(.offWhite)
+            HStack {
+                ForEach(entry.destinations) { destData in
+                    HStack {
+                        VStack {
+                            Text(destData.dest.capitalized)
+                                .font(.system(size: 18, weight:.medium))
+                                .frame(width: 75, height: 15)
+                                .foregroundStyle(.black)
+                                .padding(5)
+                                .background(Rectangle().fill(Color(.lightGrey)))
+                                .cornerRadius(7)
+                            
+                            Spacer()
+                            
+                            Text(String(Int(destData.wait_time1)))
+                                .font(.system(size: 24, weight: .medium))
+                                .foregroundStyle(Color(.dangerRed))
+                            + Text("MIN")
+                                .font(.system(size: 8.0))
+                            
+                            Spacer()
+                            
+                            Text("ETA " + destData.dest + ": ")
+                                .font(.system(size: 8.0))
+                                .baselineOffset(2)
+                            + Text(destData.eta1)
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}
+
+struct CampusETAWidgetLarge : View {
+    var entry: Provider.Entry
+    
+    
+    var body: some View {
+        HStack {
+            
+        }
+    }
+}
+
+struct CampusETAWidgetNone : View {
+    var entry: Provider.Entry
+    
+    
+    var body: some View {
+        VStack {
+            Text("Time:")
+            Text(entry.date, style: .time)
+
+            Text("Emoji:")
+            Text(entry.emoji)
+        }
+    }
+}
+
+struct CampusETAWidgetEntryView : View {
+    var entry: Provider.Entry
+    
+    @Environment(\.widgetFamily) var family
+
+    var body: some View {
+        switch family {
+        case .systemMedium:
+            CampusETAWidgetMedium(entry: entry)
+        case .systemLarge:
+            CampusETAWidgetLarge(entry: entry)
+        default:
+            CampusETAWidgetNone(entry: entry)
+        }
+    
+    }
+}
+
+
+
+struct CampusETAWidget: Widget {
+    let kind: String = "CampusETAWidget"
+
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: Provider()) { entry in
+            if #available(iOS 17.0, *) {
+                CampusETAWidgetEntryView(entry: entry)
+                    .containerBackground(.fill.tertiary, for: .widget)
+            } else {
+                CampusETAWidgetEntryView(entry: entry)
+                    .padding()
+                    .background()
+            }
+        }
+        .configurationDisplayName("My Widget")
+        .description("This is an example widget.")
+        .supportedFamilies([.systemMedium, .systemLarge])
+    }
+}
+
+#Preview(as: .systemMedium) {
+    CampusETAWidget()
+} timeline: {
+    SimpleEntry(date: .now, emoji: "😀", destinations: [
+        DestData(dest: "east", bus1_id: "4007836", bus2_id: "4014045", wait_time1: 12.3232, wait_time2: 20.2342, eta1: "12:43", eta2: "NA"),
+        DestData(dest: "swift", bus1_id: "4007836", bus2_id: "4014045", wait_time1: 12.3232, wait_time2: 20.2342, eta1: "12:43", eta2: "NA")
+    ])
 }
